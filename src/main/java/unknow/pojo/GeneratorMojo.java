@@ -16,6 +16,11 @@ public class GeneratorMojo extends AbstractMojo
 	@Parameter(property="files", required=true)
 	private File[] files;
 
+	public void setOut(String s)
+		{
+		out=Paths.get(s);
+		}
+
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException
 		{

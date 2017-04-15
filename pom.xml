@@ -8,6 +8,7 @@
 	<groupId>unknow.pojo.generator</groupId>
 	<artifactId>pojo-generator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>maven-plugin</packaging>
 
 	<build>
 		<plugins>
@@ -18,6 +19,24 @@
 					<target>7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>3.4</version>
+				<executions>
+					<execution>
+						<id>default-descriptor</id>
+						<phase>process-classes</phase>
+					</execution>
+					<execution>
+						<id>help-goal</id>
+						<goals>
+							<goal>helpmojo</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
