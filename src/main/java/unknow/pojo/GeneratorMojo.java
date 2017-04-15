@@ -28,7 +28,10 @@ public class GeneratorMojo extends AbstractMojo
 			{
 			Generator g=new Generator(out);
 			for(File f:files)
+				{
+				getLog().info("parsing "+f);
 				g.generate(f, false);
+				}
 			g.buildArchetype();
 			}
 		catch (Exception e)

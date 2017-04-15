@@ -47,7 +47,7 @@ public class Handler extends DefaultHandler
 			{
 			if(curArch==null)
 				{
-				className=attributes.getValue("name");
+				className=attributes.getValue("class");
 				int i=className.lastIndexOf('.');
 				if(i>0)
 					{
@@ -233,7 +233,10 @@ public class Handler extends DefaultHandler
 			if(i>0)
 				{
 				if(!"java.lang".equals(type.substring(0, i)))
-					imports.add(type);
+					{
+					int j=type.indexOf('[');
+					imports.add(j>0?type.substring(0, j):type);
+					}
 				type=type.substring(i+1);
 				}
 			}
